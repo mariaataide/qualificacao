@@ -1,0 +1,441 @@
+---
+title: " "
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    slide-number: true
+    toc: false
+    transition: fade
+bibliography: referencias.bib
+csl: abnt.csl 
+css: styles.css  # seu CSS externo
+---
+
+<section>
+<div class="logo">  <img src="ppgeco_ufes.png" class="logo" alt="Logo da UFES"> </div>
+
+<div class="capa">
+
+  <br>
+
+  <h3 class="titulo">
+    Impactos do Tamanho da Legislatura sobre o Resultado Fiscal dos Municípios Brasileiros
+  </h3>
+
+  <br>
+
+<div class="autoria">
+  <p><strong>Maria Amélia Santiago Ataide</strong></p>
+  <p><em>Orientadora: Profª. Drª. Ana Carolina Giuberti</em></p>
+  <p><em>Coorientador: Prof. Dr. Henrique Hott</em></p>
+</div>
+
+<p class="data">Vitória – Junho de 2025</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h3 class="secao">📝 Introdução</h3>
+
+<br>
+
+<ul>
+  <li>O déficit público é, há décadas, motivo de preocupação sobre a solvência do Estado brasileiro, devido ao acúmulo persistente de dívida [@giambiagi2021].</li>
+  
+  <li>Nos municípios, a NFSP acelerou entre 2023 e 2024, atingindo 0,19% do PIB. Esse avanço, ainda que pequeno, é o maior da série iniciada em 2002.</li>
+  
+  <li>A situação fiscal municipal não é alarmante, mas a tendência recente exige atenção, sobretudo no contexto de fragilidade das contas do Setor Público Consolidado.</li>
+  
+  <li>O tema se torna mais relevante ao considerar que a fragmentação legislativa, problema conhecido no Congresso, também afeta as Câmaras Municipais [@schaefer2024].</li>
+  
+  <li>Esta dissertação propõe estimar o efeito causal do tamanho da legislatura sobre o resultado fiscal dos municípios brasileiros.</li>
+</ul>
+
+
+</section>
+
+<section>
+
+<h3 class="secao">&#127919; Objetivos</h3>
+
+<br>
+
+<p><strong>Objetivo Geral:</strong><p>
+
+<ul style="list-style-type:none"> 
+<li>✅ Avaliar o impacto do tamanho do legislativo e, indiretamente, da fragmentação legislativa sobre o desempenho fiscal dos municípios brasileiros, para os períodos de 2005-2012 e 2013-2016.</li>
+</ul>
+<p><strong>Objetivos Específicos:</strong><p>
+
+<ul style="list-style-type:none"> 
+
+<li>✅ Avaliar o impacto da legislatura e, indiretamente, da fragmentação legislativa sobre a receita e adespesa não financeira, considerando suas principais categorias: <em>Despesa Corrente</em> e <em>Despesa de Capital</em>;</li>
+
+<li>✅ Avaliar o impacto do tamanho da legislatura e, indiretamente, da fragmentação legislativa sobre os grupos de natureza <em>Investimentos</em> e <em>Pessoal e Outros Encargos Sociais</em>;</li>
+
+<li>✅ Avaliar o impacto do tamanho da legislatura e, indiretamente, da fragmentação legislativa sobre os impostos, diferenciado as receitas correntes de <em>Impostos sobre o Patrimônio</em>, <em>Impostos sobre a Renda e Proventos de Qualquer Natureza</em> e <em>Impostos sobre Serviços de Qualquer Natureza</em>.</li>
+
+</ul>
+
+</section>
+
+<section>
+  <h3 class="secao">📖 Fragmentação e Déficit Fiscal</h3>
+
+  <br>
+
+  <ul>
+    <li><strong>Common pool problem</strong>: quando muitos legisladores compartilham o orçamento, há incentivo ao gasto excessivo [@weingast1981].</li>
+    <li><strong>Fragmentação e déficits</strong>: conflitos distributivos e sistemas proporcionais favorecem governos de coalizão, que ampliam os déficits [@persson2003; @eslava2011].</li>
+    <li><strong>Atraso na estabilização</strong>: em sociedades fragmentadas, o ajuste fiscal é postergado [@alesina1991; @velasco1999].</li>
+  </ul>
+</section>
+
+<section>
+  <h3 class="secao">📕 Evidência Empírica Internacional</h3>
+
+  <br>
+
+  <ul>
+    <li><strong>Roubini & Sachs -@roubini1989</strong>: fragmentação medida por tipo de governo → coalizões geram maiores déficits.</li>
+    <li><strong>Críticas:</strong> conceito subjetivo → nova proposta: número de partidos [@kontopoulos1999].</li>
+    <li><strong>RDD em países desenvolvidos</strong>: impacto da legislatura sobre gasto público e déficit [@egger2010; @hirota2012; @pettersson-lidbom2012].</li>
+  </ul>
+</section>
+
+<section>
+  <h3 class="secao">📙 Evidência para o Brasil e Lacuna</h3>
+
+<br>
+
+  <ul>
+    <li><strong>Britto & Fiorin -@britto2020</strong>: RDD para verificar o impacto do tamanho da legislatura sobre a corrupção.</li>
+    <li><strong>Schneider & Veras -@schneider2023</strong>: impacto sobre receitas, saúde, educação.</li>
+    <li><strong>Contribuição desta dissertação:</strong>
+      <ul style="list-style-type:none">
+        <li>✅ Foco no resultado fiscal</li>
+        <li>✅ Ampliação das categorias de receita/despesa</li>
+        <li>✅ Inclusão da EC nº 58/2009</li>
+        <li>✅ Uso de <em>fuzzy</em> RDD</li>
+      </ul>
+  </ul>
+</section>
+
+
+<section>
+
+  <h3 class="secao">⚙️Estratégia de Identificação</h3>
+
+  <br>
+
+  <ul>
+    <li>Este estudo utiliza regressão descontínua (<em>Regression Discontinuity Design – RDD</em>) para identificar o efeito do número de vereadores sobre variáveis fiscais.</li>
+    <li><strong><em>Sharp</em> RDD</strong>: Resolução nº 21.702/2004 estabelece número fixo de cadeiras por faixa populacional (2005–2012).</li>
+    <li><strong><em>Fuzzy</em> RDD</strong>: EC nº 58/2009 define limites máximos não obrigatórios (2013–2016).</li>
+    <li>Ambos criam descontinuidades populacionais que permitem inferência causal local.</li>
+  </ul>
+
+</section>
+
+<section>
+
+<h3 class="secao">✂️ <em>Sharp</em> RDD</h3>
+
+<br>
+
+  <ul>
+    <li>Atribuição do tratamento (número de cadeiras) é determinada exclusivamente pela população.</li>
+    <li>A descontinuidade populacional gera variação exógena exata → uso de <strong><em>sharp</em> RDD</strong>.</li>
+    <li>Modelo estimado:</li>
+  </ul>
+<div id="eq-2estagio">
+$$ Y_{it} = \alpha + \beta C_{it} + f(x_{it}) + \gamma X_{it} + \mu_i + \lambda_t + \varepsilon_{it} \qquad (1)$$
+
+</div>
+
+<ul>
+
+<li> $Y_{it}$: variável dependente, podendo representar qualquer uma das variáveis fiscais analisadas;</li>
+<li> $C_{it}$: número de cadeiras na Câmara Municipal;</li>
+<li> $f(x_{it})$: variável de atribuição, definida pelo tamanho da população municipal</li>
+<li> $X_{it}$: conjunto de variáveis de controle que podem influenciar a variável dependente;</li>
+<li> $\mu_i$, $\lambda_t$ e $\varepsilon_{it}$: representam, respectivamente, efeitos fixos individuais, efeitos temporais e o termo de erro aleatório. </li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h3 class="secao">🌀 <em>Fuzzy</em> RDD</h3>
+
+<br>
+
+<ul>
+    <li>A EC nº 58/2009 impõe um <strong>limite máximo</strong> de cadeiras — não obrigatório.</li>
+    <li>Nem todos os municípios seguem a regra → tratamento não perfeitamente atribuído.</li>
+    <li>Utiliza-se <strong><em>fuzzy</em> RDD</strong> com variáveis instrumentais (IV) para estimar o efeito causal.</li>
+    <li>Primeiro estágio:</li>
+</ul>
+
+<div id="eq-1estagio">
+$$ C_{it} = \alpha + \omega Z_{it} + \mu_i + \lambda_t + \phi_{it} \qquad (2)$$
+
+</div>
+
+<p>onde:</p>
+
+<ul>
+
+<li>  $Z_{it}$ é um instrumento utilizado para isolar a variação exógena de $C_{it}$, permitindo estimar seu efeito causal sobre a variável dependente ($Y_{it}$); e</li>
+<li> $\phi_{it}$ é o termo de erro aleatório do primeiro estágio.</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h3 class="secao">🧮 Principais Variáveis</h3>
+
+<br>
+
+<p><strong>Variável de atribuição:</strong></p>
+
+<ul style="list-style-type:none"><li>✅ População</li></ul>
+
+<br>
+
+<p><strong>Variáveis dependentes (%PIB):</strong></p>
+
+<ul style="list-style-type:none">
+
+<li>✅ Resultado fiscal</li>
+<li>✅ Despesas e receita totais não financeiras</li>
+<li>✅ Despesas e receitas correntes 👈🏽</li>
+<li>✅ Despesas e receitas de capital 👈🏽</li>
+<li>✅ <u>Impostos sobre o patrimônio</u>, IR e ISSQN 👈🏽</li>
+<li>✅ Investimentos e Pessoal e outros encargos sociais</li>
+
+
+</ul>
+
+</section>
+
+<section>
+
+<h3 class="secao">🎚️ Variáveis de Controle</h3>
+
+<br>
+
+<!-- <p><strong>Variáveis de Controle:</strong></p> -->
+
+<ul style="list-style-type:none">
+
+<li>✅ Proporção de jovens e idosos</li>
+<li>✅ Número de partidos efetivos</li>
+<li>✅ Ideologia</li>
+<li>✅ Alinhamento com o partido do governador e do presidente</li>
+<li>✅ FPM</li>
+<li>✅ Índice Firjan de Desenvolvimento Municipal (IFDM)</li>
+
+</section>
+
+<section>
+
+<h3 class="secao">🗃️ Fontes de Dados</h3>
+
+<br>
+
+<ul style="list-style-type:none">
+
+<li>✅ STN: despesas, receitas e suas respectivas categorias</li>
+<li>✅ IBGE: estimativa da população, PIB, IPCA</li>
+<li>✅ DATASUS: população por faixa etária</li>
+<li>✅ TSE: vagas, eleitos, partidos e características</li>
+<li>✅ BLS: estimativa do posicionamento ideológico dos partidos brasileiros</li>
+<li>✅ FIRJAN: IFDM - eixo Emprego & Renda</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h3 class="secao">📊 Estatísticas Descritivas</h3>
+
+<br>
+
+
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;">
+  <caption><strong>Estatísticas Descritivas das Principais Variáveis (2005–2012)</strong></caption>
+  <thead>
+    <tr>
+      <th>Variável</th>
+      <th>Média</th>
+      <th>DP</th>
+      <th>Mín.</th>
+      <th>Máx.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Resultado primário / PIB</td><td>7,57</td><td>4,92</td><td>-32,85</td><td>47,09</td></tr>
+    <tr><td>Desp. não financ. / PIB</td><td>12,70</td><td>7,59</td><td>0,00</td><td>72,43</td></tr>
+    <tr><td>Rec. não financ. / PIB</td><td>20,28</td><td>11,60</td><td>1,18</td><td>91,27</td></tr>
+    <tr><td>Nº de partidos efetivos</td><td>4,58</td><td>1,51</td><td>1,00</td><td>17,33</td></tr>
+    <tr><td>Nº de vagas</td><td>9,34</td><td>1,91</td><td>9</td><td>55</td></tr>
+    <tr><td>População</td><td>32.033,51</td><td>192.151,75</td><td>804</td><td>10.886.518</td></tr>
+  </tbody>
+</table>
+
+
+
+</section>
+
+<section>
+
+<h3 class="secao">📊 Estatísticas Descritivas</h3>
+
+<br>
+
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;">
+  <caption><strong>Estatísticas Descritivas das Principais Variáveis (2013–2016)</strong></caption>
+  <thead>
+    <tr>
+      <th>Variável</th>
+      <th>Média</th>
+      <th>DP</th>
+      <th>Mín.</th>
+      <th>Máx.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Resultado primário / PIB</td><td>1,68</td><td>2,88</td><td>-52,58</td><td>50,58</td></tr>
+    <tr><td>Desp. não financ. / PIB</td><td>17,77</td><td>10,17</td><td>0,00</td><td>91,12</td></tr>
+    <tr><td>Rec. não financ. / PIB</td><td>18,95</td><td>10,85</td><td>0,00</td><td>99,07</td></tr>
+    <tr><td>Nº de partidos efetivos</td><td>5,35</td><td>1,90</td><td>1,25</td><td>16,66</td></tr>
+    <tr><td>Nº de vagas</td><td>10,32</td><td>2,86</td><td>9</td><td>55</td></tr>
+    <tr><td>População</td><td>34.119,45</td><td>201.535,48</td><td>806</td><td>11.316.119</td></tr>
+  </tbody>
+</table>
+
+</section>
+
+<section>
+
+<h3 class="secao">📈 Resultados Preliminares</h3>
+
+<br>
+<br>
+
+<p class="titulo-tabelas">Impactos do Número de Vereadores sobre o Resultado Fiscal</p>
+
+<p class="subtitulo-tabelas">Estimação por <em>Sharp</em> RDD</p>
+
+<table class="tabela-resultados">
+  <thead>
+    <tr>
+      <th>Variável Dependente</th>
+      <th>2005–2012</th>
+      <th>2013–2016</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Resultado primário / PIB</td>
+      <td>-2,147<sup>***</sup></td>
+      <td>-0,207</td>
+    </tr>
+    <tr>
+      <td>Rec. não fin. / PIB</td>
+      <td>0,058</td>
+      <td>-4,096<sup>***</sup></td>
+    </tr>
+    <tr>
+      <td>Desp. não fin. / PIB</td>
+      <td>-7,552<sup>***</sup></td>
+      <td>-5,828<sup>***</sup></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em><small>
+  <sup>&#42;&#42;&#42;</sup>p&lt;0,01;
+  <sup>&#42;&#42;</sup>p&lt;0,05;
+  <sup>&#42;</sup>p&lt;0,1
+</small></em></p>
+
+</section>
+
+<section>
+
+<h3 class="secao">📆 Cronograma</h3>
+
+<br>
+<br>
+<br>
+
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;">
+  <thead>
+    <tr>
+      <th style="width: 30%;">Atividade</th>
+      <th>07/25</th>
+      <th>08/25</th>
+      <th>09/25</th>
+      <th>10/25</th>
+      <th>11/25</th>
+      <th>12/25</th>
+      <th>01/26</th>
+      <th>02/26</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Estimação dos modelos</td>
+      <td>x</td><td>x</td><td>x</td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td>Análise dos resultados</td>
+      <td></td><td></td><td>x</td><td>x</td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td>Redação da dissertação</td>
+      <td></td><td></td><td></td><td></td><td>x</td><td>x</td><td></td><td></td>
+    </tr>
+    <tr>
+      <td>Depósito da dissertação</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td>x</td><td></td>
+    </tr>
+    <tr>
+      <td>Defesa da dissertação</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>x</td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+
+<section>
+
+<h3 class="secao">📚 Referências</h3>
+
+<br>
+
+<div class="refs">
+
+::: {#refs}
+:::
+
+</div>
+
+
+</section>
+
+<section>
+
+<h3 class="agradecimento">🙏🏼 <br> Obrigada!</h3>
+
+</section>

@@ -1,0 +1,60 @@
+/*-- scss:defaults --*/
+
+$body-bg: white;       // fundo branco
+$body-color: #111111;    // texto escuro
+$link-color: #0066cc;    // links em azul elegante
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+.cronograma-titulo {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 0.9em;
+  margin: 0 auto;
+  table-layout: fixed;
+
+  thead {
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+      padding: 8px;
+      border: 1px solid #333;
+      text-align: center;
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: #fafafa;
+      }
+
+      td {
+        border: 1px solid #999;
+        padding: 8px;
+        text-align: center;
+        vertical-align: middle;
+        word-break: break-word;
+
+        &:first-child {
+          text-align: left;
+          font-weight: 500;
+          width: 25%;
+        }
+      }
+    }
+  }
+}

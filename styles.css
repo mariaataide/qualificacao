@@ -1,0 +1,160 @@
+
+.capa {
+  height: 16cm; /* altura total simulada */
+  padding-top: .5cm;  /* topo */
+  padding-bottom: 5cm; /* base */
+  text-align: center;
+}
+
+/* Logo compacta */
+.logo {
+  height: 3cm;
+  margin: 0cm 6cm 0cm 12cm;
+
+}
+
+.titulo {
+  font-size: 32pt;
+  text-align: justify;
+}
+
+/* Bloco de autoria */
+.autoria {
+  text-align: center;
+  font-size: 20pt;
+  line-height: 1.5;
+  margin-top: 30px;
+}
+
+/* Empurra a data para o rodapé */
+.data {
+  font-size: 18pt;
+  color: #555;
+  margin-top: auto;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.secao {
+  text-align: center;
+  font-size: 24;
+}
+
+p {
+  font-size: 20pt;
+  text-align: justify;
+}
+
+.agradecimento {
+  text-align: center;
+  padding-top: 8cm;
+}
+
+/* Tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 20pt;
+  table-layout: fixed;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.tabela-centralizada {
+  padding-top: 5cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+/* Cabeçalho */
+table thead th {
+  padding: 8px;
+  border: 1px solid black;
+  font-weight: bold;
+  vertical-align: middle;
+
+}
+
+/* Primeira coluna do cabeçalho */
+table th:first-child {
+  background-color: white !important;
+  text-align: left;
+  width: 35%;
+}
+
+/* Cabeçalhos dos meses */
+table th:not(:first-child) {
+  text-align: center;
+  background-color: white !important;
+}
+
+/* Células de dados */
+table td {
+  padding: 8px;
+  border: 1px solid black;
+  background-color: white !important;
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+/* Primeira coluna */
+table td:first-child {
+  border: 1px solid black;
+  background-color: white !important;
+  text-align: left;
+  font-weight: 500;
+  width: 35%;
+}
+
+/* Colunas dos meses */
+table td:not(:first-child) {
+  border: 1px solid black;
+  background-color: white !important;
+  text-align: center;
+}
+
+/* Faixa alternada (opcional) */
+table tbody tr:nth-child(even) {
+  border: 1px solid black;
+  background-color: white !important;
+  /*background-color: #fafafa;*/
+}
+
+/* Remover faixa alternada herdada de temas Reveal.js */
+table tbody tr {
+  background-color: white !important;
+}
+
+ul {
+  font-size: 20pt;
+  text-align: justify;
+}
+
+li {
+  text-align: justify;
+}
+
+.titulo-tabelas {
+  font-size: 18pt;
+  text-align: center;
+  width: 93%;
+}
+
+.subtitulo-tabelas {
+  font-size: 16pt;
+  color: darkgray;
+  text-align: center;
+  width: 93%;
+}
+
+.refs {
+  font-size: 10pt;
+}
+
+.reveal .slides section {
+  overflow-y: hidden !important;
+}
